@@ -1,3 +1,2 @@
-Tiny Theme for Micro.blog Version 2.9.7
-Created by Matt Langford (mattlangford.com)
-Documentation: tiny.micro.blog
+Marginalia for Micro.blog Version 3.0.0
+Created by Mick F, forked from Tiny Theme by Matt Langford

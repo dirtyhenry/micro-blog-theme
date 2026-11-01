@@ -1,0 +1,11 @@
+{{- $lang := partial "post-language.html" . -}}
+{{- $topics := partial "post-topics.html" . -}}
+{{- $months := slice "janv." "févr." "mars" "avr." "mai" "juin" "juil." "août" "sept." "oct." "nov." "déc." -}}
+<div class="post-byline">
+  {{ with $topics }}{{ with index . 0 }}{{ if .emoji }}<span class="post-emoji" role="img" aria-label="{{ .label }}">{{ .emoji }}</span>{{ end }}{{ end }}{{ end }}
+  <div class="post-meta">
+    {{ if $topics }}<span class="post-topics">{{ range $i, $topic := $topics }}{{ if $i }}, {{ end }}<a href="{{ $topic.url }}">{{ $topic.label }}</a>{{ end }}</span>{{ end }}
+    <span class="post-when"><a href="{{ .Permalink }}" class="post-date u-url"><time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">{{ if eq $lang "fr" }}{{ if eq .Date.Day 1 }}1er{{ else }}{{ .Date.Day }}{{ end }} {{ index $months (sub (int .Date.Month) 1) }} {{ .Date.Year }}{{ else }}{{ .Date.Format "Jan 2, 2006" }}{{ end }}</time></a>{{ if eq $lang "fr" }} · en français{{ else if eq $lang "en" }} · in English{{ end }}</span>
+  </div>
+  {{ if eq $lang "fr" }}<abbr class="post-lang" title="Français">FR</abbr>{{ else if eq $lang "en" }}<abbr class="post-lang" title="English">EN</abbr>{{ end }}
+</div>
