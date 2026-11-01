@@ -1,5 +1,5 @@
 {{ define "main" }}
-<div class="post h-entry {{ range .Params.categories }} {{ . | urlize | lower }}{{ end }}">
+<div class="post h-entry {{ range .Params.categories }} {{ . | urlize | lower }}{{ end }}" lang="{{ partial "post-language.html" . }}">
 
   {{ if templates.Exists "partials/microhook-before-post.html" }}
   {{ partial "microhook-before-post.html" . }}
@@ -10,7 +10,7 @@
     {{ if templates.Exists "partials/microhook-post-byline.html" }}
     {{ partial "microhook-post-byline.html" . }}
     {{ else }}
-    <a href="{{ .Permalink }}" class="post-date u-url"><time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">{{ .Date.Format "Jan 2, 2006" }}</time> ∞</a>
+    {{ partial "post-byline.html" . }}
     {{ with .Params.audio }}
       <script type="text/javascript" src="https://micro.blog/narration.js?url={{ . }}"></script>
     {{ end }}
@@ -26,16 +26,6 @@
 
   {{ if templates.Exists "partials/microhook-categories.html" }}
   {{ partial "microhook-categories.html" . }}
-  {{ else }}
-  {{- if .Params.categories }}
-  {{- with .GetTerms "categories" }}
-    <ul class="post-tags">
-      {{- range . }}
-        <li><a href="{{ .RelPermalink }}" class="category">{{ .LinkTitle }}</a></li>
-      {{ end }}
-    </ul>
-  {{ end }}
-  {{ end }}
   {{ end }}
 
   {{ if templates.Exists "partials/microhook-after-post.html" }}

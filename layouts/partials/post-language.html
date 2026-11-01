@@ -1,0 +1,3 @@
+{{- $lang := "" -}}
+{{- if in .Params.categories "French" }}{{ $lang = "fr" }}{{ else if in .Params.categories "English" }}{{ $lang = "en" }}{{ end -}}
+{{- return $lang -}}

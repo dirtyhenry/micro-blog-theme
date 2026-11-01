@@ -1,0 +1,8 @@
+<ul class="topics-list">
+  {{ range partial "topics.html" . }}
+  {{ $slug := urlize .name }}
+  {{ if index site.Taxonomies.categories $slug }}
+  <li><a class="topic" href="{{ printf "/categories/%s/" $slug | relURL }}"><span class="topic-emoji" aria-hidden="true">{{ .emoji }}</span>{{ .name }}</a></li>
+  {{ end }}
+  {{ end }}
+</ul>

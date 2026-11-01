@@ -1,0 +1,27 @@
+{
+	"baseURL": "https://example.org/",
+	"title": "Fixture Blog",
+	"disableKinds": [
+		"RSS",
+		"sitemap"
+	],
+	"permalinks": {
+		"notes": "/:slug/"
+	},
+	"taxonomies": {
+		"category": "categories"
+	},
+	"params": {
+		"itunes_description": "A blog that should not show this line.",
+		"author": {
+			"avatar": "https://example.org/avatar.jpg"
+		}
+	},
+	"markup": {
+		"goldmark": {
+			"renderer": {
+				"unsafe": true
+			}
+		}
+	}
+}

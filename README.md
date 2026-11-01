@@ -1,18 +1,32 @@
-# Tiny Theme for Micro.blog
+# Marginalia
 
-![Tiny Theme for Micro.blog Logo](https://github.com/MattSLangford/Tiny-Theme-for-Micro.blog/blob/main/screenshot.jpg?raw=true)
+A theme for [my Micro.blog](https://micro.mickf.net), where I post in English and in French about books, music and whatever else I can't keep to myself.
 
-## Description
-Tiny Theme is developed for use with the Micro.blog platform. It is designed to be as fast as possible while still supporting all features of the platform and popular plugins. It is the easiest theme to customize on the platform and the first to use Microhooks.
+It's editorial rather than minimal: Alegreya type, a heavy masthead, and a sidebar of topics beside the posts. Every post shows what it's about and what language it's in.
 
-**Demo and Docs:** [tiny.micro.blog](https://tiny.micro.blog).
+## Where it comes from
+
+Marginalia started as a fork of [Tiny Theme](https://github.com/MattSLangford/Tiny-Theme-for-Micro.blog) by [Matt Langford](https://mattlangford.com), and I'm grateful for the solid base. It has since become its own theme: the look, the post layout and the styles are redesigned, and it adds topics and language support. It won't track upstream, so report problems here, not to Matt.
+
+Tiny's Microhooks and plugin support are still here, so its [documentation](https://tiny.micro.blog) remains useful for those.
+
+## How posts are organised
+
+Categories do two jobs:
+
+- **Language:** `English` or `French` sets a post's language, which drives its badge, date format and `lang` attribute. Posts with neither show no language at all.
+- **Topics:** Books, Music, Politics, Tech, Pop Culture, Sustainability, Football, Basketball, Gaming and Places. The list, with its emojis and French labels, lives in `layouts/partials/topics.html`. A topic with no posts stays out of the sidebar, and any other category shows on its posts without an emoji.
+
+## Testing
+
+`test/run.sh` builds a fixture site and checks the rendered pages. It needs Hugo:
+
+```sh
+HUGO=/path/to/hugo test/run.sh
+```
+
+Run it on Micro.blog's recommended Hugo (0.158) before shipping. The theme also builds on 0.117.
 
 ## Credits
 
-Tiny Theme is created and maintained by Matt Langford ([follow on Mastodon](https://mastodon.social/@mtt). If you have bug reports or feature requests, you can submit them [Github](https://github.com/MattSLangford/Tiny-Theme-for-Micro.blog) (make sure you star the repo) or [contact Matt directly](https://mattlangford.com/).
-
-## Support Themes by Matt Langford
-
-Help fund ongoing work on Tiny, Sumo, and Bayou — clean, fast themes for Micro.blog. Your support keeps them updated and free for everyone.
-
-- <a href="https://buymeacoffee.com/mattlangford" class="donate-btn one-time">Donate to Support This Project)</a>
+Theme code is under the MIT License, keeping Matt Langford's original copyright. [Alegreya](https://github.com/huertatipografica/Alegreya) and [Alegreya Sans](https://github.com/huertatipografica/Alegreya-Sans) are by Juan Pablo del Peral and Huerta Tipográfica, under the SIL Open Font License. [Font Awesome](https://fontawesome.com) icons are included for plugins and footers.

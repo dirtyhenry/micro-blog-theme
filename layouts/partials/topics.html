@@ -1,0 +1,12 @@
+{{- $topics := slice -}}
+{{- $topics = $topics | append (dict "name" "Books" "fr" "Livres" "emoji" "📚") -}}
+{{- $topics = $topics | append (dict "name" "Music" "fr" "Musique" "emoji" "🎸") -}}
+{{- $topics = $topics | append (dict "name" "Politics" "fr" "Politique" "emoji" "🗳️") -}}
+{{- $topics = $topics | append (dict "name" "Tech" "fr" "Tech" "emoji" "💻") -}}
+{{- $topics = $topics | append (dict "name" "Pop Culture" "fr" "Pop culture" "emoji" "🍿") -}}
+{{- $topics = $topics | append (dict "name" "Sustainability" "fr" "Écologie" "emoji" "🌱") -}}
+{{- $topics = $topics | append (dict "name" "Football" "fr" "Football" "emoji" "⚽") -}}
+{{- $topics = $topics | append (dict "name" "Basketball" "fr" "Basketball" "emoji" "🏀") -}}
+{{- $topics = $topics | append (dict "name" "Gaming" "fr" "Jeux vidéo" "emoji" "🎮") -}}
+{{- $topics = $topics | append (dict "name" "Places" "fr" "Lieux" "emoji" "📍") -}}
+{{- return $topics -}}

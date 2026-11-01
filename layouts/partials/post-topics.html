@@ -1,0 +1,21 @@
+{{- $lang := partial "post-language.html" . -}}
+{{- $terms := .GetTerms "categories" -}}
+{{- $result := slice -}}
+{{- $known := slice "English" "French" -}}
+{{- range partial "topics.html" . -}}
+  {{- $topic := . -}}
+  {{- $known = $known | append $topic.name -}}
+  {{- range $terms -}}
+    {{- if eq .LinkTitle $topic.name -}}
+      {{- $label := $topic.name -}}
+      {{- if eq $lang "fr" }}{{ $label = $topic.fr }}{{ end -}}
+      {{- $result = $result | append (dict "label" $label "emoji" $topic.emoji "url" .RelPermalink) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- range $terms -}}
+  {{- if not (in $known .LinkTitle) -}}
+    {{- $result = $result | append (dict "label" .LinkTitle "emoji" "" "url" .RelPermalink) -}}
+  {{- end -}}
+{{- end -}}
+{{- return $result -}}
