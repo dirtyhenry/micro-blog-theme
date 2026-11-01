@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Builds the fixture site with the theme and checks the rendered HTML.
-# Micro.blog runs Hugo 0.117: point HUGO at that binary, newer ones fail on .Site.Author.
+# Point HUGO at the binary to test: Micro.blog recommends 0.158, and the theme also supports 0.117.
 set -u
 
 root="$(cd "$(dirname "$0")/.." && pwd)"

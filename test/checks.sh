@@ -1,8 +1,8 @@
 # Post language
-has english-book/index.html 'lang="en"'
+has english-book/index.html 'english" lang="en">'
 has english-book/index.html '>EN</abbr>'
 has english-book/index.html 'Oct 25, 2026</time></a> · in English'
-has french-multi/index.html 'lang="fr"'
+has french-multi/index.html 'french" lang="fr">'
 has french-multi/index.html '>FR</abbr>'
 has french-multi/index.html '1er oct. 2026</time></a> · en français'
 has french-unlisted/index.html '10 sept. 2026</time></a> · en français'
@@ -11,7 +11,10 @@ has french-unlisted/index.html '10 sept. 2026</time></a> · en français'
 has backlog/index.html 'Sep 20, 2026</time>'
 lacks backlog/index.html ' · in English'
 lacks backlog/index.html '</abbr>'
-lacks backlog/index.html 'lang="'"en"'" class="post'
+has backlog/index.html 'music" lang="">'
+has index.html 'music" lang="">'
+lacks index.html 'ZgotmplZ'
+lacks backlog/index.html 'ZgotmplZ'
 
 # The date links to the post, without Tiny's infinity sign
 has english-book/index.html 'class="post-date u-url"'

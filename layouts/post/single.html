@@ -1,5 +1,5 @@
 {{ define "main" }}
-<div class="post h-entry {{ range .Params.categories }} {{ . | urlize | lower }}{{ end }}"{{ with partial "post-language.html" . }} lang="{{ . }}"{{ end }}>
+<div class="post h-entry {{ range .Params.categories }} {{ . | urlize | lower }}{{ end }}" lang="{{ partial "post-language.html" . }}">
 
   {{ if templates.Exists "partials/microhook-before-post.html" }}
   {{ partial "microhook-before-post.html" . }}

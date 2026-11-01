@@ -39,3 +39,4 @@ validation-report.json
 
 # Folders to ignore
 node_modules
+.hugo_build.lock
