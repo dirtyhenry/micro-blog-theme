@@ -2,6 +2,7 @@
 type: post
 title: ""
 date: 2026-10-25T23:45:00+02:00
+lastmod: 2026-11-02T09:30:00+01:00
 slug: english-book
 categories: ["Books", "English"]
 ---

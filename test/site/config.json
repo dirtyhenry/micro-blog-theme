@@ -2,8 +2,7 @@
 	"baseURL": "https://example.org/",
 	"title": "Fixture Blog",
 	"disableKinds": [
-		"RSS",
-		"sitemap"
+		"RSS"
 	],
 	"permalinks": {
 		"notes": "/:slug/"
@@ -23,5 +22,17 @@
 				"unsafe": true
 			}
 		}
+	},
+	"enableRobotsTXT": true,
+	"paginate": 7,
+	"outputs": {
+		"home": [
+			"HTML",
+			"ArchiveHTML",
+			"PhotosHTML"
+		]
+	},
+	"pagination": {
+		"pagerSize": 7
 	}
 }

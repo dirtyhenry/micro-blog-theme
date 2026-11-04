@@ -17,6 +17,17 @@ Categories do two jobs:
 - **Language:** `English` or `French` sets a post's language, which drives its badge, date format and `lang` attribute. Posts with neither show no language at all.
 - **Topics:** Books, Music, Politics, Tech, Pop Culture, Sustainability, Football, Basketball, Gaming and Places. The list, with its emojis and French labels, lives in `layouts/partials/topics.html`. A topic with no posts stays out of the sidebar, and any other category shows on its posts without an emoji.
 
+## What it takes over from Blank
+
+Micro.blog layers every theme over its [Blank theme](https://github.com/microdotblog/theme-blank). Marginalia replaces a few of Blank's files so that each page is its own canonical and search engines find the sitemap:
+
+- `config.json` copies all of Blank's output formats and makes `/archive/` and `/photos/` permalinkable;
+- `partials/microblog_head.html` drops Blank's extra canonical link;
+- `robots.txt` adds a `Sitemap:` line;
+- `_default/sitemap.xml` dates pages by their last edit and lists the topic pages.
+
+When Blank changes one of these files, copy the change over.
+
 ## Testing
 
 `test/run.sh` builds a fixture site and checks the rendered pages. It needs Hugo:

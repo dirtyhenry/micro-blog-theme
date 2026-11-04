@@ -68,3 +68,28 @@ has categories/french/index.html '<h2 class="p-name category-title">French</h2>'
 lacks index.html '<p class="description">'
 has index.html 'name="description" content="A blog that should not show this line."'
 has index.html 'src="https://example.org/avatar.jpg"'
+
+# Every page is its own canonical, once
+has archive/index.html '<link rel="canonical" href="https://example.org/archive/">'
+lacks archive/index.html 'rel="canonical" href="https://example.org/"'
+has photos/index.html '<link rel="canonical" href="https://example.org/photos/">'
+lacks photos/index.html 'rel="canonical" href="https://example.org/"'
+has index.html '<link rel="canonical" href="https://example.org/">'
+has page/2/index.html '<link rel="canonical" href="https://example.org/page/2/">'
+lacks page/2/index.html 'rel="canonical" href="https://example.org/"'
+has categories/books/index.html '<link rel="canonical" href="https://example.org/categories/books/">'
+has english-book/index.html '<link rel="canonical" href="https://example.org/english-book/">'
+
+# robots.txt points crawlers at the sitemap
+has robots.txt 'User-agent: *'
+has robots.txt 'Sitemap: https://example.org/sitemap.xml'
+
+# The sitemap dates posts by their last edit and lists the topic pages
+has sitemap.xml '<loc>https://example.org/english-book/</loc> <lastmod>2026-11-02T09:30:00+01:00</lastmod>'
+has sitemap.xml '<loc>https://example.org/bare/</loc> <lastmod>2026-09-01T12:00:00+02:00</lastmod>'
+has sitemap.xml '<loc>https://example.org/categories/books/</loc>'
+has sitemap.xml '<loc>https://example.org/about/</loc>'
+has sitemap.xml '<loc>https://example.org/archive/</loc>'
+lacks sitemap.xml '<loc>https://example.org/categories/</loc>'
+lacks sitemap.xml '<loc>https://example.org/page/'
+lacks sitemap.xml '<loc>https://example.org/notes/</loc>'
