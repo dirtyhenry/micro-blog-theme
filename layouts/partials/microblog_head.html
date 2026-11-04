@@ -3,7 +3,7 @@
   <link rel="alternate" href="{{ "feed.json" | absURL }}" type="application/json" title="{{ $.Site.Title }}">
 {{ end }}
 
-{{/* Copied from Blank, which links every alternative format. Skipping the canonical one leaves head.html's canonical as the only one. */}}
+{{- /* Copied from Blank, which links every alternative format. Skipping the canonical one leaves head.html's canonical as the only one. */}}
 {{ range .AlternativeOutputFormats -}}
   {{ if ne .Rel "canonical" -}}
   {{ printf `<link rel="%s" href="%s" type="%s" title="%s">` .Rel .Permalink .MediaType.Type $.Site.Title | safeHTML }}

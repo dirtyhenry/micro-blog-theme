@@ -1,9 +1,9 @@
 {{ "<" | safeHTML }}?xml version="1.0" encoding="UTF-8"{{ "?>" | safeHTML }}
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-	{{- /* Blank's list (posts, plus the menu pages such as /archive/ and /photos/) with the topic pages added, dated by their last edit. */ -}}
-	{{ $list := (where .Site.Pages "Type" "post") }}
-	{{- $list := $list | union (where .Site.Pages ".Params.menu" "main") -}}
-	{{- $list := $list | union (where .Site.Pages "Kind" "term") -}}
+	{{- /* Blank's list (posts, plus the menu pages such as /archive/ and /photos/) with every category page added, dated by their last edit. */ -}}
+	{{- $list := where .Site.Pages "Type" "post" -}}
+	{{- $list = $list | union (where .Site.Pages ".Params.menu" "main") -}}
+	{{- $list = $list | union (where .Site.Pages "Kind" "term") -}}
 	{{- range $list -}}
 		<url>
 			<loc>{{ .Permalink }}</loc>
