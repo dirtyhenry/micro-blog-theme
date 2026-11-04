@@ -42,12 +42,12 @@
               </div>
               {{ else }}
               <div class="e-content">
-                  {{ .Content }}
+                  {{ partial "post-content.html" . }}
               </div>
               {{ end }}
       {{ else }}
           <div class="e-content">
-              {{ .Content }}
+              {{ partial "post-content.html" . }}
           </div>
       {{ end }}
       {{ if templates.Exists "partials/microhook-below-post-in-list.html" }}
