@@ -1,8 +1,11 @@
 <ul class="topics-list">
   {{ range partial "topics.html" . }}
-  {{ $slug := urlize .name }}
-  {{ if index site.Taxonomies.categories $slug }}
-  <li><a class="topic" href="{{ printf "/categories/%s/" $slug | relURL }}"><span class="topic-emoji" aria-hidden="true">{{ .emoji }}</span>{{ .name }}</a></li>
+  {{ $topic := . }}
+  {{- /* Look the topic page up by its URL: the taxonomy is keyed by the lowercased name ("pop culture"), not the slug. */}}
+  {{ with site.GetPage (printf "/categories/%s" (urlize .name)) }}
+  {{ if .Pages }}
+  <li><a class="topic" href="{{ .RelPermalink }}"><span class="topic-emoji" aria-hidden="true">{{ $topic.emoji }}</span>{{ $topic.name }}</a></li>
+  {{ end }}
   {{ end }}
   {{ end }}
 </ul>
