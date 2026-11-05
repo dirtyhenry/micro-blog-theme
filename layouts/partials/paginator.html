@@ -1,0 +1,12 @@
+{{- /* The paginator of a post list. head.html and the list templates share it, because Hugo refuses .Paginate twice with different lists. Returns false on pages that don't paginate. */ -}}
+{{- $paginator := false -}}
+{{- if .IsHome -}}
+  {{- $paginator = .Paginate (where .Site.Pages.ByDate.Reverse "Type" "post") -}}
+{{- else if and .IsSection (eq .Section "replies") -}}
+  {{- if .Site.Params.paginate_replies -}}
+    {{- $paginator = .Paginate (where .Data.Pages.ByDate.Reverse "Type" "reply") -}}
+  {{- end -}}
+{{- else if .IsNode -}}
+  {{- $paginator = .Paginate (where .Pages.ByDate.Reverse "Type" "post") -}}
+{{- end -}}
+{{- return $paginator -}}
