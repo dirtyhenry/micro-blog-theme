@@ -1,2 +1,2 @@
-Marginalia for Micro.blog Version 3.1.0
+Marginalia for Micro.blog Version 3.1.1
 Created by Mick F, forked from Tiny Theme by Matt Langford
