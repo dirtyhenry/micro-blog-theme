@@ -84,8 +84,8 @@ has english-book/index.html '<link rel="canonical" href="https://example.org/eng
 has robots.txt 'User-agent: *'
 has robots.txt 'Sitemap: https://example.org/sitemap.xml'
 
-# The sitemap dates posts by their last edit and lists the topic pages
-has sitemap.xml '<loc>https://example.org/english-book/</loc> <lastmod>2026-11-02T09:30:00+01:00</lastmod>'
+# The sitemap dates posts by publication, since Micro.blog bumps lastmod in bulk, and lists the category pages
+has sitemap.xml '<loc>https://example.org/english-book/</loc> <lastmod>2026-10-25T23:45:00+02:00</lastmod>'
 has sitemap.xml '<loc>https://example.org/bare/</loc> <lastmod>2026-09-01T12:00:00+02:00</lastmod>'
 has sitemap.xml '<loc>https://example.org/categories/books/</loc>'
 has sitemap.xml '<loc>https://example.org/about/</loc>'
