@@ -93,3 +93,18 @@ has sitemap.xml '<loc>https://example.org/archive/</loc>'
 lacks sitemap.xml '<loc>https://example.org/categories/</loc>'
 lacks sitemap.xml '<loc>https://example.org/page/'
 lacks sitemap.xml '<loc>https://example.org/notes/</loc>'
+
+# Uploaded photos show resized by Micro.blog, fall back to their original, and link to it
+has uploaded-photos/index.html '<a href="https://example.org/uploads/2026/relative.png" class="full-res"><img src="https://micro.blog/photos/1320x/https://example.org/uploads/2026/relative.png" data-original="https://example.org/uploads/2026/relative.png" onerror="this.onerror=null;this.src=this.dataset.original"></a>'
+has uploaded-photos/index.html '<a href="https://example.org/uploads/2026/absolute.jpg" class="full-res"><img alt="Absolute" src="https://micro.blog/photos/1320x/https://example.org/uploads/2026/absolute.jpg" data-original="https://example.org/uploads/2026/absolute.jpg" onerror="this.onerror=null;this.src=this.dataset.original" width="600" height="400"></a>'
+has page/2/index.html 'class="full-res"><img src="https://micro.blog/photos/1320x/https://example.org/uploads/2026/relative.png" data-original="https://example.org/uploads/2026/relative.png" onerror="this.onerror=null;this.src=this.dataset.original"></a>'
+has categories/english/index.html 'class="full-res"><img src="https://micro.blog/photos/1320x/https://example.org/uploads/2026/relative.png"'
+
+has uploaded-photos/index.html '<a href="https://cdn.uploads.micro.blog/98522/2026/cdn.png" class="full-res"><img src="https://micro.blog/photos/1320x/https://cdn.uploads.micro.blog/98522/2026/cdn.png" data-original="https://cdn.uploads.micro.blog/98522/2026/cdn.png" onerror="this.onerror=null;this.src=this.dataset.original" width="514" height="600" alt=""></a>'
+
+# A photo that already links somewhere keeps its link
+has uploaded-photos/index.html '<a href="https://example.org/elsewhere/"><img src="https://micro.blog/photos/1320x/https://example.org/uploads/2026/linked.jpg" data-original="https://example.org/uploads/2026/linked.jpg" onerror="this.onerror=null;this.src=this.dataset.original"></a>'
+
+# GIFs keep animating, and other sites' images are left alone
+has uploaded-photos/index.html '<img src="https://example.org/uploads/2026/animated.gif">'
+has uploaded-photos/index.html '<img src="https://elsewhere.example/photo.jpg">'
