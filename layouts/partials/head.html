@@ -33,7 +33,12 @@
     {{ end }}
   {{ end }}
   <title>{{ block "title" . }}{{ if .IsHome }}{{ .Site.Title }}{{ else if .Title }}{{ .Title }} | {{ .Site.Title }}{{ else }}{{ delimit (split .Summary " " | first 5) " " }} … | {{ .Site.Title }}{{ end }}{{ end }}</title>
-  <link rel="canonical" href="{{ .Permalink }}">
+  {{- /* .Permalink is already right for /archive/ and /photos/, whose formats are permalinkable. The HTML render of a list, the one where HTML isn't an alternative format, adds its page number. */}}
+  {{ $canonical := .Permalink }}
+  {{ if not (.AlternativeOutputFormats.Get "html") }}
+  {{ with partial "paginator.html" . }}{{ $canonical = .URL | absURL }}{{ end }}
+  {{ end }}
+  <link rel="canonical" href="{{ $canonical }}">
   {{ if templates.Exists "partials/microhook-uncss.html" }}
   {{ partial "microhook-uncss.html" . }}
   {{ else }}
