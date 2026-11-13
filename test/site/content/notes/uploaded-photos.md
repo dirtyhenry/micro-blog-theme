@@ -10,3 +10,5 @@ categories: ["English"]
 <p><a href="https://example.org/elsewhere/"><img src="https://example.org/uploads/2026/linked.jpg"></a></p>
 
 <p><img src="https://example.org/uploads/2026/animated.gif"><img src="https://elsewhere.example/photo.jpg"></p>
+
+<img src="https://cdn.uploads.micro.blog/98522/2026/cdn.png" width="514" height="600" alt="">

@@ -100,6 +100,8 @@ has uploaded-photos/index.html '<a href="https://example.org/uploads/2026/absolu
 has page/2/index.html 'class="full-res"><img src="https://micro.blog/photos/1320x/https://example.org/uploads/2026/relative.png" data-original="https://example.org/uploads/2026/relative.png" onerror="this.onerror=null;this.src=this.dataset.original"></a>'
 has categories/english/index.html 'class="full-res"><img src="https://micro.blog/photos/1320x/https://example.org/uploads/2026/relative.png"'
 
+has uploaded-photos/index.html '<a href="https://cdn.uploads.micro.blog/98522/2026/cdn.png" class="full-res"><img src="https://micro.blog/photos/1320x/https://cdn.uploads.micro.blog/98522/2026/cdn.png" data-original="https://cdn.uploads.micro.blog/98522/2026/cdn.png" onerror="this.onerror=null;this.src=this.dataset.original" width="514" height="600" alt=""></a>'
+
 # A photo that already links somewhere keeps its link
 has uploaded-photos/index.html '<a href="https://example.org/elsewhere/"><img src="https://micro.blog/photos/1320x/https://example.org/uploads/2026/linked.jpg" data-original="https://example.org/uploads/2026/linked.jpg" onerror="this.onerror=null;this.src=this.dataset.original"></a>'
 
