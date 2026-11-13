@@ -21,7 +21,7 @@
   </header>
 
   <article class="post-content e-content">
-    {{ .Content }}
+    {{ partial "post-content.html" . }}
   </article>
 
   {{ if templates.Exists "partials/microhook-categories.html" }}

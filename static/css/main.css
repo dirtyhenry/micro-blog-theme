@@ -932,3 +932,7 @@ form p {
 		height: auto;
 	}
 }
+
+a.full-res {
+	cursor: zoom-in;
+}

@@ -13,7 +13,7 @@
   <div class="reply-to"> Replying to: {{ if eq .Params.reply_to_hostname "micro.blog" }} <a href="{{ .Params.reply_to_url }}" class="u-in-reply-to">@{{ .Params.reply_to_username }}</a> {{ else }} <a href="{{ .Params.reply_to_url }}" class="u-in-reply-to">{{ .Params.reply_to_hostname }}</a> {{ end }} </div> {{ end }}
 
   <article class="post-content">
-    {{ .Content }}
+    {{ partial "post-content.html" . }}
   </article>
 
   {{ if templates.Exists "partials/microhook-after-page-content.html" }}

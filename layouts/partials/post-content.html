@@ -1,0 +1,11 @@
+{{/* The post's content, with its uploaded photos shown resized by Micro.blog and linking to their full-resolution original.
+The resizer can time out on a size it hasn't made yet, so a failed copy falls back to the original.
+GIFs stay as uploaded so they keep animating, and a photo that already links somewhere keeps its link. */}}
+{{ $base := strings.TrimSuffix "/" site.BaseURL }}
+{{ $content := string .Content }}
+{{/* Micro.blog can insert uploads with a relative path, which neither the resizer nor feed readers can resolve */}}
+{{ $content = replaceRE `(<img\b[^>]*?\ssrc=")/?(uploads/)` (printf "${1}%s/${2}" $base) $content }}
+{{ $upload := printf `%s/uploads/[^"]+\.(?i:png|jpe?g|webp|heic)` (replace $base "." `\.`) }}
+{{ $content = replaceRE (printf `<img([^>]*?)\ssrc="(%s)"([^>]*)>` $upload) `<a href="${2}" class="full-res"><img${1} src="https://micro.blog/photos/1320x/${2}" data-original="${2}" onerror="this.onerror=null;this.src=this.dataset.original"${3}></a>` $content }}
+{{ $content = replaceRE `<a ([^>]*)>(\s*)<a href="[^"]*" class="full-res">(<img[^>]*>)</a>` `<a ${1}>${2}${3}` $content }}
+{{ $content | safeHTML }}
