@@ -211,3 +211,5 @@ has categories/books/index.html '<p class="site-name"><a class="site-title p-nam
 has archive/index.html '<p class="site-name"><a class="site-title p-name u-url" href="/">'
 has about/index.html '<h1 class="p-name">About</h1>'
 has about/index.html '<p class="site-name"><a class="site-title p-name u-url" href="/">'
+has photos/index.html '<h1 class="p-name">Photos</h1>'
+has photos/index.html '<p class="site-name"><a class="site-title p-name u-url" href="/">'

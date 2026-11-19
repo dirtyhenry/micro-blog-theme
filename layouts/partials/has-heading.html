@@ -1,7 +1,7 @@
-{{- /* Whether the page's content has its own h1, so the masthead must not be one: titled posts and pages, every list but the homepage, and /archive/. */ -}}
+{{- /* Whether the page's content has its own h1, so the masthead must not be one: titled posts and pages, every list but the homepage, and /archive/ and /photos/, the homepage's other formats. */ -}}
 {{- $heading := true -}}
 {{- if .IsHome -}}
-  {{- $heading = partial "is-archive.html" . -}}
+  {{- with .AlternativeOutputFormats.Get "html" }}{{ $heading = true }}{{ else }}{{ $heading = false }}{{ end -}}
 {{- else if .IsPage -}}
   {{- $heading = ne .Title "" -}}
 {{- end -}}
