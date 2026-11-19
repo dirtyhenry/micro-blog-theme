@@ -405,6 +405,7 @@ a.post-date:hover {
 .post-title,
 .post-header .p-name,
 .page > .p-name,
+.archive > .p-name,
 .category-title {
 	margin: 0;
 	font-size: 32px;
@@ -424,6 +425,7 @@ a.post-date:hover {
 
 .post-header,
 .page > .p-name,
+.archive > .p-name,
 .category-title {
 	margin-bottom: 24px;
 }

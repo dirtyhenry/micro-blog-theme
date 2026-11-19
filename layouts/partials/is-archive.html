@@ -1,0 +1,6 @@
+{{- /* Whether this is /archive/, the homepage's ArchiveHTML format. Relies on that format staying permalinkable in config.json, so that its Permalink is /archive/. */ -}}
+{{- $archive := false -}}
+{{- if .IsHome -}}
+  {{- with .OutputFormats.Get "archivehtml" }}{{ $archive = eq .Permalink $.Permalink }}{{ end -}}
+{{- end -}}
+{{- return $archive -}}

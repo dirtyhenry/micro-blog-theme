@@ -27,12 +27,17 @@ The head gives every page what search engines and link previews read:
 - **Language:** French posts get `<html lang="fr">`; every other page stays `en`.
 - **Structured data:** a `BlogPosting` on each post, and the `Blog` and Mick on the homepage, as the same person www.mickf.net describes.
 
+## The archive
+
+`/archive/` is titled "Archive", with a description and an intro counting the posts since the first one, then the categories and every post under its year's heading. Micro.blog only builds the one page, so years are anchors (`/archive/#2025`), not URLs of their own.
+
 ## What it takes over from Blank
 
-Micro.blog layers every theme over its [Blank theme](https://github.com/microdotblog/theme-blank). Marginalia replaces a few of Blank's files so that each page is its own canonical and search engines find the sitemap:
+Micro.blog layers every theme over its [Blank theme](https://github.com/microdotblog/theme-blank). Marginalia replaces a few of Blank's files so that each page is its own canonical, search engines find the sitemap, and `/archive/` reads as a page of its own:
 
 - `config.json` copies all of Blank's output formats and makes `/archive/` and `/photos/` permalinkable;
 - `partials/microblog_head.html` drops Blank's extra canonical link;
+- `_default/list.archivehtml.html` gives `/archive/` its title, intro and year headings;
 - `robots.txt` adds a `Sitemap:` line;
 - `_default/sitemap.xml` lists every category page. It dates pages by publication, because Micro.blog bumps the last-modified date of hundreds of posts at once.
 

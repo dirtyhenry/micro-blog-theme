@@ -188,3 +188,17 @@ has quoted/index.html '<meta property="og:description" content="If you’ve ever
 lacks quoted/index.html '&amp;rsquo;'
 lacks index.html '&amp;nbsp;'
 lacks index.html '\u0026nbsp;'
+
+# The archive: its own title and description (not the homepage's), an h1 and an intro, and posts under year headings
+has archive/index.html '<title>Archive | Mick’s Micro Blog</title>'
+has archive/index.html '<meta property="og:title" content="Archive | Mick’s Micro Blog">'
+lacks photos/index.html '<title>Archive'
+has archive/index.html '<meta name="description" content="Every post on Mick’s Micro Blog since 2025, by year: books, music, tech and more, in English and in French.">'
+has archive/index.html '<meta property="og:description" content="Every post on Mick’s Micro Blog since 2025, by year: books, music, tech and more, in English and in French.">'
+lacks archive/index.html 'A blog that should not show this line'
+has archive/index.html '<h1 class="p-name">Archive</h1>'
+has archive/index.html '<p class="archive-intro">All 15 posts since 2025, newest first, in English and in French. For a single topic, start from its category.</p>'
+lacks archive/index.html '<h2 class="p-name">Archive</h2>'
+has archive/index.html '<h2 id="2026">2026</h2>'
+has archive/index.html '<h2 id="2025">2025</h2> <p class="h-entry"> <a href="https://example.org/last-year/" class="u-url">'
+lacks archive/index.html 'Full Post List'
