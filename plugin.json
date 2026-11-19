@@ -1,5 +1,5 @@
 {
-	"version": "3.2.2",
+	"version": "3.3.0",
 	"title": "Marginalia",
 	"description": "A bilingual, editorial theme for Micro.blog, set in Alegreya. Forked from Tiny Theme by Matt Langford.",
 	"fields": [
@@ -8,6 +8,12 @@
 			"label": "Custom Avatar URL",
 			"type": "string",
 			"placeholder": "Enter the URL to a custom avatar image"
+		},
+		{
+			"field": "params.default_card",
+			"label": "Default Share Card URL",
+			"type": "string",
+			"placeholder": "A 1200×630 image for posts and pages without a photo"
 		}
 	]
 }

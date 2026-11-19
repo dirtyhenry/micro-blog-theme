@@ -108,3 +108,76 @@ has uploaded-photos/index.html '<a href="https://example.org/elsewhere/"><img sr
 # GIFs keep animating, and other sites' images are left alone
 has uploaded-photos/index.html '<img src="https://example.org/uploads/2026/animated.gif">'
 has uploaded-photos/index.html '<img src="https://elsewhere.example/photo.jpg">'
+
+# Titles: a titled post uses its title, an untitled one its first sentence cut near 60 characters, both followed by the site title
+has french-unlisted/index.html '<title>Un titre | Mick’s Micro Blog</title>'
+has french-unlisted/index.html '<meta property="og:title" content="Un titre | Mick’s Micro Blog">'
+has long-sentence/index.html '<title>How to remove a stuck SIM tray from an old phone without … | Mick’s Micro Blog</title>'
+has long-sentence/index.html '<meta property="og:title" content="How to remove a stuck SIM tray from an old phone without … | Mick’s Micro Blog">'
+has french-multi/index.html '<title>Une note sur la tech et la politique. | Mick’s Micro Blog</title>'
+has index.html '<title>Mick’s Micro Blog</title>'
+has categories/books/index.html '<title>Books | Mick’s Micro Blog</title>'
+
+# Descriptions: the post's Summary if set, otherwise its text cut at a word under 155 characters
+has summarized/index.html '<meta name="description" content="How to remove a stuck SIM tray, step by step.">'
+has summarized/index.html '<meta property="og:description" content="How to remove a stuck SIM tray, step by step.">'
+has long-sentence/index.html '<meta name="description" content="How to remove a stuck SIM tray from an old phone without breaking anything inside it? Use a paperclip. Then a second sentence that must not reach the …">'
+has long-sentence/index.html '<meta property="og:description" content="How to remove a stuck SIM tray from an old phone without breaking anything inside it? Use a paperclip. Then a second sentence that must not reach the …">'
+has bare/index.html '<meta name="description" content="Nothing at all.">'
+lacks bare/index.html 'name="og:description"'
+has index.html '<meta property="og:description" content="A blog that should not show this line.">'
+lacks index.html 'name="og:description"'
+
+# Share image: the post's first photo, else Micro.blog's card, else the site's default card, always as a large card
+has with-photos/index.html '<meta property="og:image" content="https://example.org/uploads/2026/first.jpg">'
+has with-photos/index.html '<meta name="twitter:image" content="https://example.org/uploads/2026/first.jpg">'
+lacks with-photos/index.html 'content="https://example.org/uploads/2026/second.jpg"'
+lacks with-photos/index.html 'content="https://example.org/opengraph/with-photos.png"'
+has carded/index.html '<meta property="og:image" content="https://example.org/opengraph/carded.png">'
+has bare/index.html '<meta property="og:image" content="https://example.org/uploads/card.png">'
+has bare/index.html '<meta name="twitter:card" content="summary_large_image">'
+lacks bare/index.html 'content="summary"'
+has index.html '<meta property="og:image" content="https://example.org/uploads/card.png">'
+lacks index.html 'property="og:image" content="https://example.org/avatar.jpg"'
+
+# Open Graph: the canonical URL, articles for posts with their publication time, a website elsewhere
+has english-book/index.html '<meta property="og:url" content="https://example.org/english-book/">'
+has english-book/index.html '<meta property="og:type" content="article">'
+has english-book/index.html '<meta property="article:published_time" content="2026-10-25T23:45:00+02:00">'
+has page/2/index.html '<meta property="og:url" content="https://example.org/page/2/">'
+has index.html '<meta property="og:type" content="website">'
+lacks index.html 'article:published_time'
+has about/index.html '<meta property="og:type" content="website">'
+
+# The page's language: French for French posts, English everywhere else
+has french-multi/index.html '<html lang="fr">'
+has english-book/index.html '<html lang="en">'
+has backlog/index.html '<html lang="en">'
+has index.html '<html lang="en">'
+
+# Structured data on posts: a BlogPosting by Mick, dated by publication since Micro.blog bumps lastmod in bulk
+has french-multi/index.html '<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting",'
+has french-multi/index.html '"headline":"Une note sur la tech et la politique."'
+has french-multi/index.html '"datePublished":"2026-10-01T12:00:00+02:00"'
+has french-multi/index.html '"inLanguage":"fr"'
+has french-multi/index.html '"url":"https://example.org/french-multi/"'
+has french-multi/index.html '"image":"https://example.org/uploads/card.png"'
+has french-multi/index.html '"author":{"@id":"https://www.mickf.net/#person","@type":"Person","name":"Mick F","url":"https://www.mickf.net/"}'
+has english-book/index.html '"dateModified":"2026-10-25T23:45:00+02:00"'
+has english-book/index.html '"inLanguage":"en"'
+has with-photos/index.html '"image":"https://example.org/uploads/2026/first.jpg"'
+has french-unlisted/index.html '"headline":"Un titre"'
+lacks backlog/index.html '"inLanguage"'
+lacks about/index.html 'BlogPosting'
+
+# Structured data on the homepage: the Blog, and Mick with his profiles elsewhere
+has index.html '<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://example.org/#blog","@type":"Blog",'
+has index.html '"name":"Mick’s Micro Blog"'
+has index.html '"description":"A blog that should not show this line."'
+has index.html '"author":{"@id":"https://www.mickf.net/#person"}'
+has index.html '"sameAs":["https://www.mickf.net/","https://github.com/dirtyhenry","https://micro.blog/dirtyhenry","https://bsky.app/profile/mickf.net"]'
+has index.html '"image":"https://example.org/avatar.jpg"'
+lacks page/2/index.html 'application/ld+json'
+lacks categories/books/index.html 'application/ld+json'
+lacks archive/index.html 'application/ld+json'
+lacks photos/index.html 'application/ld+json'

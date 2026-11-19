@@ -2,43 +2,38 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="twitter:card" content="summary">
-  {{ with .Title }}
-  <meta name="twitter:title" content="{{ . }}">
-  <meta property="og:title" content="{{ . }}">
-  {{ else }}
-  <meta name="twitter:title" content="{{ .Site.Title }}">
-  <meta property="og:title" content="{{ .Site.Title }}">
-  {{ end }}
-  {{ if .IsHome }}
-  <meta name="twitter:description" content="{{ .Site.Params.itunes_description | truncate 125 }}">
-  <meta name="og:description" content="{{ .Site.Params.itunes_description | truncate 60 }}">
-  <meta name="description" content="{{ .Site.Params.itunes_description }}">
-  <meta name="twitter:image" content="{{ .Site.Params.author.avatar }}">
-  <meta property="og:image" content="{{ .Site.Params.author.avatar }}">
-  {{ else }}
-  <meta name="twitter:description" content="{{ .Summary | truncate 60 }}">
-  <meta name="og:description" content="{{ .Summary | truncate 60 }}">
-  <meta name="description" content="{{ .Summary }}">
-  {{ end }}
-  {{ if .Params.photos }}
-    {{ range .Params.photos }}
-    <meta name="twitter:image" content="{{ . }}">
-    <meta property="og:image" content="{{ . }}">
-    {{ end }}
-  {{ else }}
-    {{ with .Params.opengraph.image }}
-    <meta name="twitter:image" content="{{ . }}">
-    <meta property="og:image" content="{{ . }}">
-    {{ end }}
-  {{ end }}
-  <title>{{ block "title" . }}{{ if .IsHome }}{{ .Site.Title }}{{ else if .Title }}{{ .Title }} | {{ .Site.Title }}{{ else }}{{ delimit (split .Summary " " | first 5) " " }} … | {{ .Site.Title }}{{ end }}{{ end }}</title>
   {{- /* .Permalink is already right for /archive/ and /photos/, whose formats are permalinkable. The HTML render of a list, the one where HTML isn't an alternative format, adds its page number. */}}
   {{ $canonical := .Permalink }}
   {{ if not (.AlternativeOutputFormats.Get "html") }}
   {{ with partial "paginator.html" . }}{{ $canonical = .URL | absURL }}{{ end }}
   {{ end }}
+  {{ $title := .Site.Title }}
+  {{ with partial "page-title.html" . }}{{ $title = printf "%s | %s" . $.Site.Title }}{{ end }}
+  <meta name="twitter:title" content="{{ $title }}">
+  <meta property="og:title" content="{{ $title }}">
+  <meta property="og:url" content="{{ $canonical }}">
+  {{ if and .IsPage (eq .Type "post") }}
+  <meta property="og:type" content="article">
+  {{- /* Built by hand, because the template would escape the offset's + as &#43;. */}}
+  <meta property="article:published_time" {{ printf "content=%q" (.Date.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr }}>
+  {{ else }}
+  <meta property="og:type" content="website">
+  {{ end }}
+  {{ with partial "page-description.html" . }}
+  <meta name="description" content="{{ . }}">
+  <meta name="twitter:description" content="{{ . }}">
+  <meta property="og:description" content="{{ . }}">
+  {{ end }}
+  {{ with partial "page-image.html" . }}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="{{ . }}">
+  <meta property="og:image" content="{{ . }}">
+  {{ else }}
+  <meta name="twitter:card" content="summary">
+  {{ end }}
+  <title>{{ $title }}</title>
   <link rel="canonical" href="{{ $canonical }}">
+  {{ partial "structured-data.html" . }}
   {{ if templates.Exists "partials/microhook-uncss.html" }}
   {{ partial "microhook-uncss.html" . }}
   {{ else }}
