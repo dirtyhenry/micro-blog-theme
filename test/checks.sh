@@ -213,3 +213,10 @@ has about/index.html '<h1 class="p-name">About</h1>'
 has about/index.html '<p class="site-name"><a class="site-title p-name u-url" href="/">'
 has photos/index.html '<h1 class="p-name">Photos</h1>'
 has photos/index.html '<p class="site-name"><a class="site-title p-name u-url" href="/">'
+
+# Titles are plain text too: Micro.blog's entities (Life&rsquo;s) are decoded, not escaped twice
+has quoted/index.html '<title>If you’ve ever tried “this”, you’ll know. | Mick’s Micro Blog</title>'
+has quoted/index.html '<meta property="og:title" content="If you’ve ever tried “this”, you’ll know. | Mick’s Micro Blog">'
+has quoted/index.html '"headline":"If you’ve ever tried “this”, you’ll know."'
+lacks quoted/index.html 'amp;rsquo;'
+lacks quoted/index.html '\u0026amp;'

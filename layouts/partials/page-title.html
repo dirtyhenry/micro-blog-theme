@@ -1,4 +1,4 @@
-{{- /* The page's own title, without the site's. An untitled post takes its first sentence, cut at a word boundary near 60 characters. "Archive" on /archive/. Returns "" on the homepage, or when an untitled post has no text. */ -}}
+{{- /* The page's own title, without the site's. An untitled post takes its first sentence, cut at a word boundary near 60 characters, decoded to plain text since Micro.blog stores entities. "Archive" on /archive/. Returns "" on the homepage, or when an untitled post has no text. */ -}}
 {{- $title := "" -}}
 {{- if partial "is-archive.html" . -}}
   {{- $title = "Archive" -}}
@@ -6,7 +6,7 @@
 {{- else if .Title -}}
   {{- $title = .Title -}}
 {{- else -}}
-  {{- $text := .Plain | replaceRE `\s+` " " | strings.TrimSpace -}}
+  {{- $text := .Plain | htmlUnescape | replaceRE `\s+` " " | strings.TrimSpace -}}
   {{- with findRE `^.*?[.!?](\s|$)` $text 1 }}{{ $text = index . 0 | strings.TrimSpace }}{{ end -}}
   {{- $title = $text | truncate 60 -}}
 {{- end -}}
