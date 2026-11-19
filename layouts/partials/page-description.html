@@ -1,0 +1,10 @@
+{{- /* The page's description: the site's on the homepage, otherwise the post's Summary field if set, else its text cut at a word boundary under 155 characters. Returns "" when there is none. */ -}}
+{{- $description := "" -}}
+{{- if .IsHome -}}
+  {{- $description = .Site.Params.itunes_description -}}
+{{- else if .Params.summary -}}
+  {{- $description = .Params.summary -}}
+{{- else -}}
+  {{- $description = .Summary | plainify | replaceRE `\s+` " " | strings.TrimSpace | truncate 152 -}}
+{{- end -}}
+{{- return $description -}}

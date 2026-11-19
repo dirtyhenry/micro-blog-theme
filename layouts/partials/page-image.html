@@ -1,0 +1,5 @@
+{{- /* The page's share image: the post's first photo, else the card Micro.blog generates for it, else the site's default card, else the avatar. Returns "" when the site has neither. */ -}}
+{{- $image := .Site.Params.default_card | default .Site.Params.author.avatar -}}
+{{- with .Params.opengraph.image }}{{ $image = . }}{{ end -}}
+{{- with .Params.photos }}{{ $image = index . 0 }}{{ end -}}
+{{- return $image -}}

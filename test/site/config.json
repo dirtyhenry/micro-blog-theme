@@ -1,6 +1,6 @@
 {
 	"baseURL": "https://example.org/",
-	"title": "Fixture Blog",
+	"title": "Mick’s Micro Blog",
 	"disableKinds": [
 		"RSS"
 	],
@@ -14,7 +14,8 @@
 		"itunes_description": "A blog that should not show this line.",
 		"author": {
 			"avatar": "https://example.org/avatar.jpg"
-		}
+		},
+		"default_card": "https://example.org/uploads/card.png"
 	},
 	"markup": {
 		"goldmark": {

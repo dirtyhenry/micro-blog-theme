@@ -17,6 +17,16 @@ Categories do two jobs:
 - **Language:** `English` or `French` sets a post's language, which drives its badge, date format and `lang` attribute. Posts with neither show no language at all.
 - **Topics:** Books, Music, Politics, Tech, Pop Culture, Sustainability, Football, Basketball, Gaming and Places. The list, with its emojis and French labels, lives in `layouts/partials/topics.html`. A topic with no posts stays out of the sidebar, and any other category shows on its posts without an emoji.
 
+## How posts look when shared
+
+The head gives every page what search engines and link previews read:
+
+- **Title:** a post's title, or the first sentence of an untitled post cut near 60 characters, followed by the site's title.
+- **Description:** the post's Summary field if it's set, otherwise the start of the post, cut under 155 characters.
+- **Image:** the post's first photo, else the card Micro.blog makes for it, else the **Default Share Card URL** set in the theme's settings (a 1200×630 image), else the avatar.
+- **Language:** French posts get `<html lang="fr">`; every other page stays `en`.
+- **Structured data:** a `BlogPosting` on each post, and the `Blog` and Mick on the homepage, as the same person www.mickf.net describes.
+
 ## What it takes over from Blank
 
 Micro.blog layers every theme over its [Blank theme](https://github.com/microdotblog/theme-blank). Marginalia replaces a few of Blank's files so that each page is its own canonical and search engines find the sitemap:
