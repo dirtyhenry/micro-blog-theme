@@ -1,0 +1,6 @@
+{{- /* Whether this is /archive/, the homepage's ArchiveHTML format, which is permalinkable. */ -}}
+{{- $archive := false -}}
+{{- if .IsHome -}}
+  {{- with .OutputFormats.Get "archivehtml" }}{{ $archive = eq .Permalink $.Permalink }}{{ end -}}
+{{- end -}}
+{{- return $archive -}}

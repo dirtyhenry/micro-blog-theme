@@ -1,6 +1,10 @@
-{{- /* The page's description: the site's on the homepage, otherwise the post's Summary field if set, else its text cut at a word boundary under 155 characters. Decoded to plain text, since both can hold HTML entities. Returns "" when there is none. */ -}}
+{{- /* The page's description: the archive's own on /archive/, the site's on the homepage, otherwise the post's Summary field if set, else its text cut at a word boundary under 155 characters. Decoded to plain text, since both can hold HTML entities. Returns "" when there is none. */ -}}
 {{- $description := "" -}}
-{{- if .IsHome -}}
+{{- if partial "is-archive.html" . -}}
+  {{- $since := "" -}}
+  {{- range first 1 (where .Site.Pages "Type" "post").ByDate }}{{ $since = printf " since %s" (.Date.Format "2006") }}{{ end -}}
+  {{- $description = printf "Every post on %s%s, by year: books, music, tech and more, in English and in French." .Site.Title $since -}}
+{{- else if .IsHome -}}
   {{- $description = .Site.Params.itunes_description | default "" | htmlUnescape -}}
 {{- else if .Params.summary -}}
   {{- $description = .Params.summary | htmlUnescape -}}
