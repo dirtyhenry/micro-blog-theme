@@ -37,7 +37,7 @@ Micro.blog layers every theme over its [Blank theme](https://github.com/microdot
 
 - `config.json` copies all of Blank's output formats and makes `/archive/` and `/photos/` permalinkable;
 - `partials/microblog_head.html` drops Blank's extra canonical link;
-- `_default/list.archivehtml.html` gives `/archive/` its title, intro and year headings;
+- `list.archivehtml.html` gives `/archive/` its title, intro and year headings;
 - `robots.txt` adds a `Sitemap:` line;
 - `_default/sitemap.xml` lists every category page. It dates pages by publication, because Micro.blog bumps the last-modified date of hundreds of posts at once.
 
