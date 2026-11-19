@@ -66,7 +66,7 @@ has categories/french/index.html '<h2 class="p-name category-title">French</h2>'
 
 # The masthead drops the site description, previews keep it
 lacks index.html '<p class="description">'
-has index.html 'name="description" content="A blog that should not show this line."'
+has index.html 'name="description" content="A blog that should not show this line, at Memo Bank."'
 has index.html 'src="https://example.org/avatar.jpg"'
 
 # Every page is its own canonical, once
@@ -125,7 +125,7 @@ has long-sentence/index.html '<meta name="description" content="How to remove a 
 has long-sentence/index.html '<meta property="og:description" content="How to remove a stuck SIM tray from an old phone without breaking anything inside it? Use a paperclip. Then a second sentence that must not reach the …">'
 has bare/index.html '<meta name="description" content="Nothing at all.">'
 lacks bare/index.html 'name="og:description"'
-has index.html '<meta property="og:description" content="A blog that should not show this line.">'
+has index.html '<meta property="og:description" content="A blog that should not show this line, at Memo Bank.">'
 lacks index.html 'name="og:description"'
 
 # Share image: the post's first photo, else Micro.blog's card, else the site's default card, always as a large card
@@ -173,7 +173,7 @@ lacks about/index.html 'BlogPosting'
 # Structured data on the homepage: the Blog, and Mick with his profiles elsewhere
 has index.html '<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://example.org/#blog","@type":"Blog",'
 has index.html '"name":"Mick’s Micro Blog"'
-has index.html '"description":"A blog that should not show this line."'
+has index.html '"description":"A blog that should not show this line, at Memo Bank."'
 has index.html '"author":{"@id":"https://www.mickf.net/#person"}'
 has index.html '"sameAs":["https://www.mickf.net/","https://github.com/dirtyhenry","https://micro.blog/dirtyhenry","https://bsky.app/profile/mickf.net"]'
 has index.html '"image":"https://example.org/avatar.jpg"'
@@ -181,3 +181,10 @@ lacks page/2/index.html 'application/ld+json'
 lacks categories/books/index.html 'application/ld+json'
 lacks archive/index.html 'application/ld+json'
 lacks photos/index.html 'application/ld+json'
+
+# Descriptions are plain text: entities from the post or the site's description are decoded, not escaped twice
+has quoted/index.html '<meta name="description" content="If you’ve ever tried “this”, you’ll know.">'
+has quoted/index.html '<meta property="og:description" content="If you’ve ever tried “this”, you’ll know.">'
+lacks quoted/index.html '&amp;rsquo;'
+lacks index.html '&amp;nbsp;'
+lacks index.html '\u0026nbsp;'

@@ -11,7 +11,7 @@
 		"category": "categories"
 	},
 	"params": {
-		"itunes_description": "A blog that should not show this line.",
+		"itunes_description": "A blog that should not show this line, at Memo&nbsp;Bank.",
 		"author": {
 			"avatar": "https://example.org/avatar.jpg"
 		},
