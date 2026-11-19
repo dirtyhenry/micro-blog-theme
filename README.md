@@ -27,6 +27,10 @@ The head gives every page what search engines and link previews read:
 - **Language:** French posts get `<html lang="fr">`; every other page stays `en`.
 - **Structured data:** a `BlogPosting` on each post, and the `Blog` and Mick on the homepage, as the same person www.mickf.net describes.
 
+## Headings
+
+Each page has one `<h1>`: the post's or page's title, the category's name, or "Archive". The masthead is the `<h1>` only where the page has no heading of its own, the homepage and untitled posts.
+
 ## The archive
 
 `/archive/` is titled "Archive", with a description and an intro counting the posts since the first one, then the categories and every post under its year's heading. Micro.blog only builds the one page, so years are anchors (`/archive/#2025`), not URLs of their own.

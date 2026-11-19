@@ -46,7 +46,7 @@ lacks bare/index.html 'post-topics'
 has bare/index.html 'Sep 1, 2026</time>'
 
 # Titled posts
-has french-unlisted/index.html '<h2 class="p-name">Un titre</h2>'
+has french-unlisted/index.html '<h1 class="p-name">Un titre</h1>'
 
 # Topics sidebar: home and topic pages only, with empty topics hidden
 has index.html 'class="topics-sidebar"'
@@ -61,8 +61,8 @@ lacks about/index.html 'class="topics-sidebar"'
 lacks archive/index.html 'class="topics-sidebar"'
 
 # Topic pages carry their emoji, language pages do not
-has categories/books/index.html '<span aria-hidden="true">📚</span> Books</h2>'
-has categories/french/index.html '<h2 class="p-name category-title">French</h2>'
+has categories/books/index.html '<span aria-hidden="true">📚</span> Books</h1>'
+has categories/french/index.html '<h1 class="p-name category-title">French</h1>'
 
 # The masthead drops the site description, previews keep it
 lacks index.html '<p class="description">'
@@ -202,3 +202,12 @@ lacks archive/index.html '<h2 class="p-name">Archive</h2>'
 has archive/index.html '<h2 id="2026">2026</h2>'
 has archive/index.html '<h2 id="2025">2025</h2> <p class="h-entry"> <a href="https://example.org/last-year/" class="u-url">'
 lacks archive/index.html 'Full Post List'
+
+# One h1 per page: the page's own heading where it has one, the masthead otherwise
+has index.html '<h1 class="site-name"><a class="site-title p-name u-url" href="/">'
+has bare/index.html '<h1 class="site-name"><a class="site-title p-name u-url" href="/">'
+has french-unlisted/index.html '<p class="site-name"><a class="site-title p-name u-url" href="/">'
+has categories/books/index.html '<p class="site-name"><a class="site-title p-name u-url" href="/">'
+has archive/index.html '<p class="site-name"><a class="site-title p-name u-url" href="/">'
+has about/index.html '<h1 class="p-name">About</h1>'
+has about/index.html '<p class="site-name"><a class="site-title p-name u-url" href="/">'

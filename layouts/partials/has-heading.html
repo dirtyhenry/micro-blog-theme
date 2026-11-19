@@ -1,0 +1,8 @@
+{{- /* Whether the page's content has its own h1, so the masthead must not be one: titled posts and pages, every list but the homepage, and /archive/. */ -}}
+{{- $heading := true -}}
+{{- if .IsHome -}}
+  {{- $heading = partial "is-archive.html" . -}}
+{{- else if .IsPage -}}
+  {{- $heading = ne .Title "" -}}
+{{- end -}}
+{{- return $heading -}}
