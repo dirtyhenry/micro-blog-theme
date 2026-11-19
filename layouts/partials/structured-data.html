@@ -14,7 +14,7 @@
   {{- $person = merge $person (dict "sameAs" $sameAs) -}}
   {{- with .Site.Params.author.avatar }}{{ $person = merge $person (dict "image" .) }}{{ end -}}
   {{- $blog := dict "@type" "Blog" "@id" (print .Permalink "#blog") "name" .Site.Title "url" .Permalink "author" (dict "@id" (index $person "@id")) -}}
-  {{- with .Site.Params.itunes_description }}{{ $blog = merge $blog (dict "description" .) }}{{ end -}}
+  {{- with partial "page-description.html" . }}{{ $blog = merge $blog (dict "description" .) }}{{ end -}}
   {{- $data = dict "@context" "https://schema.org" "@graph" (slice $blog $person) -}}
 {{- end -}}
 {{- with $data }}
