@@ -1,0 +1,4 @@
+{{- /* The year of the blog's first post, or "" when there are no posts. */ -}}
+{{- $year := "" -}}
+{{- range first 1 (where .Site.Pages "Type" "post").ByDate }}{{ $year = .Date.Format "2006" }}{{ end -}}
+{{- return $year -}}
