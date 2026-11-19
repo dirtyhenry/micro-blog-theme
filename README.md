@@ -29,7 +29,7 @@ The head gives every page what search engines and link previews read:
 
 ## Headings
 
-Each page has one `<h1>`: the post's or page's title, the category's name, or "Archive". The masthead is the `<h1>` only where the page has no heading of its own, the homepage and untitled posts.
+Each page has one `<h1>`: the post's or page's title, the category's name, "Archive" or "Photos". The masthead is the `<h1>` only where the page has no heading of its own, the homepage and untitled posts.
 
 ## The archive
 
@@ -42,6 +42,7 @@ Micro.blog layers every theme over its [Blank theme](https://github.com/microdot
 - `config.json` copies all of Blank's output formats and makes `/archive/` and `/photos/` permalinkable;
 - `partials/microblog_head.html` drops Blank's extra canonical link;
 - `list.archivehtml.html` gives `/archive/` its title, intro and year headings;
+- `list.photoshtml.html` gives `/photos/` a heading;
 - `robots.txt` adds a `Sitemap:` line;
 - `_default/sitemap.xml` lists every category page. It dates pages by publication, because Micro.blog bumps the last-modified date of hundreds of posts at once.
 
