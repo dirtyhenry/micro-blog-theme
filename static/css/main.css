@@ -114,6 +114,7 @@ h3 {
 	line-height: 1.2em;
 }
 
+h1,
 h2 {
 	margin-top: 0;
 }
@@ -144,7 +145,7 @@ img.profile_photo {
 	object-fit: cover;
 }
 
-.site-header h1 {
+.site-name {
 	margin: 0;
 	font-size: clamp(40px, 9vw, 64px);
 	line-height: 1;
@@ -152,13 +153,13 @@ img.profile_photo {
 	letter-spacing: -0.02em;
 }
 
-.site-header h1 a,
-.site-header h1 a:visited {
+.site-name a,
+.site-name a:visited {
 	text-decoration: none;
 	color: var(--text);
 }
 
-.site-header h1 a:hover {
+.site-name a:hover {
 	color: var(--accent1);
 }
 

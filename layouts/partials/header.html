@@ -8,7 +8,11 @@
 	{{ if templates.Exists "partials/microhook-title.html" }}
 	{{ partial "microhook-title.html" . }}
 	{{ else }}
-	<h1><a class="site-title p-name u-url" href="/">{{ .Site.Title }}</a></h1>
+	{{ if partial "has-heading.html" . }}
+	<p class="site-name"><a class="site-title p-name u-url" href="/">{{ .Site.Title }}</a></p>
+	{{ else }}
+	<h1 class="site-name"><a class="site-title p-name u-url" href="/">{{ .Site.Title }}</a></h1>
+	{{ end }}
 	{{ end }}
 	</div>
 	{{ if templates.Exists "partials/microhook-description.html" }}

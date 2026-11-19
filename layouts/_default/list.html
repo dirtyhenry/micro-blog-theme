@@ -6,7 +6,7 @@
 {{ else }}
 <div class="archive h-feed {{ .Title }}">
 
-  <h2 class="p-name category-title">{{ range partial "topics.html" . }}{{ if eq .name $.Title }}<span aria-hidden="true">{{ .emoji }}</span> {{ end }}{{ end }}{{ .Title }}</h2>
+  <h1 class="p-name category-title">{{ range partial "topics.html" . }}{{ if eq .name $.Title }}<span aria-hidden="true">{{ .emoji }}</span> {{ end }}{{ end }}{{ .Title }}</h1>
 {{ if templates.Exists "partials/microhook-category-header.html" }}
   {{ partial "microhook-category-header.html" . }}
 {{ end }}
