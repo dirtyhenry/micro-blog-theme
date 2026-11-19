@@ -189,7 +189,7 @@ lacks quoted/index.html '&amp;rsquo;'
 lacks index.html '&amp;nbsp;'
 lacks index.html '\u0026nbsp;'
 
-# The archive: its own title and description, an h1 and an intro, and posts under year headings
+# The archive: its own title and description (not the homepage's), an h1 and an intro, and posts under year headings
 has archive/index.html '<title>Archive | Mick’s Micro Blog</title>'
 has archive/index.html '<meta property="og:title" content="Archive | Mick’s Micro Blog">'
 lacks photos/index.html '<title>Archive'

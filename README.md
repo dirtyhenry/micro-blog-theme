@@ -33,7 +33,7 @@ The head gives every page what search engines and link previews read:
 
 ## What it takes over from Blank
 
-Micro.blog layers every theme over its [Blank theme](https://github.com/microdotblog/theme-blank). Marginalia replaces a few of Blank's files so that each page is its own canonical and search engines find the sitemap:
+Micro.blog layers every theme over its [Blank theme](https://github.com/microdotblog/theme-blank). Marginalia replaces a few of Blank's files so that each page is its own canonical, search engines find the sitemap, and `/archive/` reads as a page of its own:
 
 - `config.json` copies all of Blank's output formats and makes `/archive/` and `/photos/` permalinkable;
 - `partials/microblog_head.html` drops Blank's extra canonical link;

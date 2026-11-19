@@ -2,7 +2,7 @@
 {{- $description := "" -}}
 {{- if partial "is-archive.html" . -}}
   {{- $since := "" -}}
-  {{- range first 1 (where .Site.Pages "Type" "post").ByDate }}{{ $since = printf " since %s" (.Date.Format "2006") }}{{ end -}}
+  {{- with partial "first-year.html" . }}{{ $since = printf " since %s" . }}{{ end -}}
   {{- $description = printf "Every post on %s%s, by year: books, music, tech and more, in English and in French." .Site.Title $since -}}
 {{- else if .IsHome -}}
   {{- $description = .Site.Params.itunes_description | default "" | htmlUnescape -}}
